@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const path= require('path');
 const cors = require('cors');
 const { MongoClient, ObjectId } = require('mongodb');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const app = express();
 app.use(express.json())
 app.use((req, res, next) => {

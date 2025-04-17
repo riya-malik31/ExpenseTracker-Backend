@@ -6,16 +6,16 @@ const { MongoClient, ObjectId } = require('mongodb');
 const bcrypt = require('bcryptjs');
 const app = express();
 app.use(express.json())
-// app.use((req, res, next) => {
-//   res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-//   res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-//   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-//   res.setHeader("Access-Control-Allow-Credentials", "true");
-//   if (req.method === 'OPTIONS') {
-//     return res.sendStatus(200); 
-//   }
-//   next();
-// });
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000","https://expense-tracker-frontend-73gu.vercel.app");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(200); 
+  }
+  next();
+});
 app.use(cors({
   origin: ['https://expense-tracker-frontend-73gu.vercel.app','*'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],

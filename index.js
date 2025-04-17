@@ -17,7 +17,7 @@ app.use(express.json())
 //   next();
 // });
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: ['https://expense-tracker-frontend-73gu.vercel.app','*'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
 }));
 

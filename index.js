@@ -105,7 +105,7 @@ app.post('/add-expense', async (req, res) => {
     const expensesCollection = database.collection('Expenses');
     const newExpense = {
       userId: new ObjectId(userId),
-      username,
+      username:user.username,
       title,
       amount: parseFloat(amount),
       date

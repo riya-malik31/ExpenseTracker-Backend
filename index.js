@@ -95,7 +95,7 @@ app.post('/login', async (req, res) => {
 
 app.post('/add-expense', async (req, res) => {
   try {
-    const { userId,username, title, amount, date } = req.body;
+    const { userId, title, amount, date } = req.body;
 
     if (!title || !amount || !date || !userId ) {
       return res.status(400).json({ message: "All fields are required" });
@@ -105,7 +105,6 @@ app.post('/add-expense', async (req, res) => {
     const expensesCollection = database.collection('Expenses');
     const newExpense = {
       userId: new ObjectId(userId),
-      username:user.username,
       title,
       amount: parseFloat(amount),
       date
@@ -164,7 +163,7 @@ app.delete('/delete-expense/:id', async (req, res) => {
 });
 app.post('/add-income', async (req, res) => {
   try {
-    const { userId,username, title, amount, date } = req.body;
+    const { userId, title, amount, date } = req.body;
 
     if (!userId || !title || !amount || !date) {
       return res.status(400).json({ message: "All fields are required" });
@@ -174,7 +173,6 @@ app.post('/add-income', async (req, res) => {
     const incomeCollection = database.collection('Income');
     const newIncome = {
       userId: new ObjectId(userId),
-      username,
       title,
       amount: parseFloat(amount),
       date
